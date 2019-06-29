@@ -152,7 +152,10 @@ func server(args []string) {
 		os.Exit(1)
 	}
 	flags.Parse(args)
-
+	
+	if *auth == "" {
+		*auth = os.Getenv("AUTH")
+	}
 	if *host == "" {
 		*host = os.Getenv("HOST")
 	}
